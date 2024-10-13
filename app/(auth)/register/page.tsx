@@ -23,47 +23,49 @@ export default function Register() {
     }
   };
   return (
-    <section className="w-full h-screen flex items-center justify-center">
+    <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-10 max-w-[500px]">
       <form
         ref={ref}
         action={handleSubmit}
-        className="p-6 w-full max-w-[400px] flex flex-col justify-between items-center gap-2 
-          border border-solid border-black bg-white rounded"
+        className="p-6 w-full max-w-[400px] border border-1 border-gray-200 rounded-xl items-center"
       >
-        {error && <div className="">{error}</div>}
         <h1 className="mb-5 w-full text-2xl font-bold">Register</h1>
 
         <label className="w-full text-sm">Full Name</label>
         <input
           type="text"
           placeholder="Full Name"
-          className="w-full h-8 border border-solid border-black py-1 px-2.5 rounded text-[13px]"
+          className="w-full h-8 border border-solid border-slate-300 py-1 px-2.5 rounded text-[13px]"
           name="name"
         />
-
+        <div className="pt-2"></div>
         <label className="w-full text-sm">Email</label>
         <input
           type="email"
           placeholder="Email"
-          className="w-full h-8 border border-solid border-black py-1 px-2.5 rounded"
+          className="w-full h-8 border border-solid border-slate-300 py-1 px-2.5 rounded"
           name="email"
         />
-
+        <div className="pt-2"></div>
         <label className="w-full text-sm">Password</label>
         <div className="flex w-full">
           <input
             type="password"
             placeholder="Password"
-            className="w-full h-8 border border-solid border-black py-1 px-2.5 rounded"
+            className="w-full h-8 border border-solid border-slate-300 py-1 px-2.5 rounded"
             name="password"
           />
         </div>
-
-        <button
-          className="w-full border border-solid border-black py-1.5 mt-2.5 rounded
-          transition duration-150 ease hover:bg-black"
-        >
-          Sign up
+        <div className="pt-4"></div>
+        <div className="flex justify-start">
+          {error && (
+            <div className="text-red-500 flex text-xs font-bold place-content-start justify-start w-full">
+              {error}
+            </div>
+          )}
+        </div>
+        <button className="w-full bg-gradient-to-r from-cyan-400 to-fuchsia-400 font-semibold p-2 border text-white rounded-lg">
+          Sign Up
         </button>
 
         <Link

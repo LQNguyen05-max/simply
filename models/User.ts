@@ -7,6 +7,7 @@ export interface UserDocument {
   name: string;
   phone: string;
   image: string;
+  cards: [];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -30,6 +31,13 @@ const UserSchema = new Schema<UserDocument>(
       type: String,
       required: [true, "Name is required"],
     },
+    cards: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Card",
+        default: [],
+      },
+    ],
   },
   {
     timestamps: true,
